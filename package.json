@@ -1,0 +1,24 @@
+{
+  "name": "puppet-translator",
+  "version": "1.0.0",
+  "bin": "./puppet-translator.js",
+  "description": "A Google Translate Command Line Interface powered by Puppeteer",
+  "main": "puppet-translator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "msr1k",
+    "email": "msr0210+npm@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msr0210/puppet-translator.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.0",
+    "puppeteer-core": "^2.0.0"
+  }
+}
