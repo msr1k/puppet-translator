@@ -9,7 +9,7 @@ A Google Translate Command Line Interface
 Preface
 -------
 
-Translate passed text via Google Translate.
+This tool translates passed text via Google Translate.
 
 This tool internally uses Google Chrome, so it should have been installed on
 your system. And you should also specify the path to the chrome. It can be
@@ -80,7 +80,7 @@ To know more about options, see below.
         Hello
 
 `PUPPET_TRANSLATOR_CHROME_BIN_PATH` environment variable must be defined to
-point a Google Chrome binary before following command.
+point a Google Chrome binary before these commands.
 
 Otherwise you should specify it in command line via `-c` / `--chrome` option.
 
