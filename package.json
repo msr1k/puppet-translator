@@ -7,10 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": {
-    "name": "msr1k",
-    "email": "msr0210+npm@gmail.com"
-  },
+  "author": "msr1k <msr0210+npm@gmail.com> (https://github.com/msr1k)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/msr0210/puppet-translator.git"
