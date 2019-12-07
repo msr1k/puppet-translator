@@ -97,6 +97,10 @@ msr1k <msr0210+npm@gmail.com>
 CHANGELOG
 ---------
 
+### v1.0.1 (2019-12-07)
+
+- Add URI encoding to the given text.
+
 ### v1.0.0 (2019-12-06)
 
 - First release.
