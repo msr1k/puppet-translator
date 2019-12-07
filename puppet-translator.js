@@ -75,13 +75,13 @@ try {
 
 options.help && onExit();
 
-let chromePath = options.chrome || process.env.PUPPET_TRANSLATOR_CHROME_BIN_PATH;
+const chromePath = options.chrome || process.env.PUPPET_TRANSLATOR_CHROME_BIN_PATH;
 chromePath  || onExit("ERROR: Couldn't identify Google Chrome path");
 
 (async () => {
 
   try {
-    let target_text = options.text || await readAllStream(process.stdin);
+    const target_text = options.text || (process.stdin.isTTY ? null : await readAllStream(process.stdin));
     target_text || onExit('ERROR: `--text` or standard input was not given.');
 
     const url = `https://translate.google.com/?op=translate&sl=${options.from}&tl=${options.to}&text=${encodeURIComponent(target_text)}`;
