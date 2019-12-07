@@ -78,7 +78,7 @@ options.help && onExit();
 options.text || onExit('ERROR: `--text` was not given.');
 chromePath   || onExit("ERROR: Couldn't identify Google Chrome path");
 
-const url = `https://translate.google.com/?op=translate&sl=${options.from}&tl=${options.to}&text=${options.text}`;
+const url = `https://translate.google.com/?op=translate&sl=${options.from}&tl=${options.to}&text=${encodeURIComponent(options.text)}`;
 
 (async () => {
 
