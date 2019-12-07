@@ -37,27 +37,31 @@ Usage
 
     $ puppet-translator [options]
 
-You must specify `-x` or `--text` option which represents the text to be
+In this form, you must specify `-x` or `--text` option which represents the text to be
 translated.
 
-To know more about options, see below.
+Or you can pass piped input to translate.
+
+    $ somme-command-which-generates-text | puppet-translator [options]
+
+To know more, please see Options and Examples below.
 
 ### Options
 
 * -c, --chrome string
 
-    Path to the Google Chrome, if you omit this option a environment variable
+    Path to the Google Chrome, if you omit this option, a environment variable
     `PUPPET_TRANSLATOR_CHROME_BIN_PATH` will be used instead.
 
 * -f, --from string
 
     Language code of the input text or "auto" to autodetection  
-    (Default: "auto")
+    **(Default: "auto")**
 
 * -t, --to string
 
-    Language code of the output text
-    (Default: "ja")
+    Language code of the output text  
+    **(Default: "ja")**
 
 * -x, --text string
 
@@ -79,6 +83,11 @@ To know more about options, see below.
         $ puppet-translator -f ja -t en -x こんにちは
         Hello
 
+* Auto-detected-language to Japanese (pipe)
+
+        $ echo "Hello World" | puppet-translator -f auto -t ja
+        こんにちは世界
+
 `PUPPET_TRANSLATOR_CHROME_BIN_PATH` environment variable must be defined to
 point a Google Chrome binary before these commands.
 
@@ -96,6 +105,10 @@ msr1k <msr0210+npm@gmail.com>
 
 CHANGELOG
 ---------
+
+### v1.0.2 (2019-12-07)
+
+- Support piped input.
 
 ### v1.0.1 (2019-12-07)
 

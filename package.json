@@ -1,6 +1,6 @@
 {
   "name": "puppet-translator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bin": "./puppet-translator.js",
   "description": "A Google Translate Command Line Interface powered by Puppeteer",
   "main": "puppet-translator.js",
