@@ -2,6 +2,7 @@
 const cla = require('command-line-args');
 const clu = require('command-line-usage');
 const pupp = require('puppeteer-core');
+const readAllStream = require("read-all-stream");
 
 const optionDefinitions = [
   {
@@ -72,17 +73,19 @@ try {
   onExit('ERROR: Could not parase command line arguments correctly.');
 }
 
-let chromePath = options.chrome || process.env.PUPPET_TRANSLATOR_CHROME_BIN_PATH;
-
 options.help && onExit();
-options.text || onExit('ERROR: `--text` was not given.');
-chromePath   || onExit("ERROR: Couldn't identify Google Chrome path");
 
-const url = `https://translate.google.com/?op=translate&sl=${options.from}&tl=${options.to}&text=${encodeURIComponent(options.text)}`;
+const chromePath = options.chrome || process.env.PUPPET_TRANSLATOR_CHROME_BIN_PATH;
+chromePath  || onExit("ERROR: Couldn't identify Google Chrome path");
 
 (async () => {
 
   try {
+    const target_text = options.text || (process.stdin.isTTY ? null : await readAllStream(process.stdin));
+    target_text || onExit('ERROR: `--text` or standard input was not given.');
+
+    const url = `https://translate.google.com/?op=translate&sl=${options.from}&tl=${options.to}&text=${encodeURIComponent(target_text)}`;
+
     const browser = await pupp.launch({
       ignoreDefaultArgs: ['--disable-extensions'],
       executablePath: chromePath
