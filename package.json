@@ -5,7 +5,7 @@
   "description": "A Google Translate Command Line Interface powered by Puppeteer",
   "main": "puppet-translator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "msr1k <msr0210+npm@gmail.com> (https://github.com/msr1k)",
   "repository": {
@@ -27,6 +27,8 @@
     "read-all-stream": "^3.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.7.2"
+    "command-line-test": "^1.0.10",
+    "eslint": "^6.7.2",
+    "mocha": "^6.2.2"
   }
 }
