@@ -10,7 +10,7 @@
   "author": "msr1k <msr0210+npm@gmail.com> (https://github.com/msr1k)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/msr0210/puppet-translator.git"
+    "url": "git+https://github.com/msr1k/puppet-translator.git"
   },
   "license": "MIT",
   "dependencies": {
