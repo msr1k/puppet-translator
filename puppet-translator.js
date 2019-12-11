@@ -59,10 +59,15 @@ as long as you can browse https://translate.google.com by Google Chrome.
 ];
 
 function onExit(errormsg) {
-  errormsg && console.log(errormsg);
   const usage = clu(sections);
-  console.log(usage);
-  process.exit(errormsg ? 1 : 0);
+  if (errormsg) {
+    console.error(errormsg);
+    console.error(usage);
+    process.exit(1);
+  } else {
+    console.log(usage);
+    process.exit(0);
+  }
 }
 
 var options;
@@ -76,7 +81,7 @@ try {
 options.help && onExit();
 
 const chromePath = options.chrome || process.env.PUPPET_TRANSLATOR_CHROME_BIN_PATH;
-chromePath  || onExit("ERROR: Couldn't identify Google Chrome path");
+chromePath || onExit("ERROR: Couldn't identify Google Chrome path");
 
 (async () => {
 
