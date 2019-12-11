@@ -12,6 +12,13 @@
     "type": "git",
     "url": "git+https://github.com/msr1k/puppet-translator.git"
   },
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "keywords": [
+    "cli",
+    "translate"
+  ],
   "license": "MIT",
   "dependencies": {
     "command-line-args": "^5.1.1",
