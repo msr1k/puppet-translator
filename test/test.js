@@ -1,8 +1,9 @@
 /* eslint-env mocha */
 'use strict';
 
+const { exec } = require('child_process');
+
 const path = require('path');
-const clt = require('command-line-test');
 const pkg = require('../package');
 const bin = path.resolve(pkg.bin);
 
@@ -11,16 +12,16 @@ describe('puppet-translator translate function test', function () {
   this.timeout(10000);
 
   it ('`puppet-translator -x hello` should return "こんにちは"', function () {
-    let c = new clt();
-    return c.exec(`node ${bin} -x hello`).then(res => {
-      res.stdout.should.be.equal('こんにちは');
+    return exec(`node ${bin} -x hello`, (err, stdout, stderr) => {
+      stdout.trim().should.be.equal('こんにちは');
+      stderr.should.be.equal('');
     });
   });
 
   it ('`puppet-translator -f ja -t en -x こんにちは` should return "Hello"', function () {
-    let c = new clt();
-    return c.exec(`node ${bin} -f ja -t en -x "こんにちは"`).then(res => {
-      res.stdout.should.be.equal('Hello');
+    return exec(`node ${bin} -f ja -t en -x "こんにちは"`, (err, stdout, stderr) => {
+      stdout.trim().should.be.equal('Hello');
+      stderr.should.be.equal('');
     });
   });
 
