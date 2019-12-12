@@ -27,15 +27,12 @@ describe('puppet-translator translate function test', function () {
 
 });
 
-/*
 describe('puppet-translator argument requirement test', function () {
 
   it ('`puppet-translator`(has no arguments) should be error', function () {
-    let c = new clt();
-    return c.execFile(bin, [], {}).then(res => {
-      assert.include(res.stderr, 'ERROR');
+    return exec(`node ${bin}`, (err, stdout, stderr) => {
+      stderr.should.match(/^ERROR/);
     });
   });
 
 });
-*/
