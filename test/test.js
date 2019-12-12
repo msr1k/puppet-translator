@@ -1,6 +1,5 @@
 'use strict';
 
-const assert = require('assert');
 const path = require('path');
 const clt = require('command-line-test');
 const pkg = require('../package');
@@ -12,15 +11,15 @@ describe('puppet-translator translate function test', function () {
 
   it ('`puppet-translator -x hello` should return "こんにちは"', function () {
     let c = new clt();
-    return c.execFile(bin, ['-x', 'hello'], {}).then(res => {
-      assert.equal(res.stdout, 'こんにちは');
+    return c.exec(`node ${bin} -x hello`).then(res => {
+      res.stdout.should.be.equal('こんにちは');
     });
   });
 
   it ('`puppet-translator -f ja -t en -x こんにちは` should return "Hello"', function () {
     let c = new clt();
-    return c.execFile(bin, ['-f', 'ja', '-t', 'en', '-x', 'こんにちは'], {}).then(res => {
-      assert.equal(res.stdout, 'Hello');
+    return c.exec(`node ${bin} -f ja -t en -x "こんにちは"`).then(res => {
+      res.stdout.should.be.equal('Hello');
     });
   });
 
