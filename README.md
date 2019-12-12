@@ -3,7 +3,8 @@ Puppet Translator
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-A Google Translate Command Line Interface
+A Google Translate Command Line Interface  
+https://www.npmjs.com/package/puppet-translator
 
 
 Preface
@@ -101,10 +102,14 @@ LICENSE
 AUTHOR
 ------
 
-msr1k <msr0210+npm@gmail.com>
+msr1k <msr0210+npm@gmail.com> (https://github.com/msr1k)
 
 CHANGELOG
 ---------
+
+### v1.0.3 (2019-12-12)
+
+- Improve error output message.
 
 ### v1.0.2 (2019-12-07)
 
