@@ -74,8 +74,8 @@ var options;
 
 try {
   options = cla(optionDefinitions);
-} catch {
-  onExit('ERROR: Could not parase command line arguments correctly.');
+} catch (_) {
+  onExit('ERROR: Could not parse command line arguments correctly.');
 }
 
 options.help && onExit();
@@ -106,7 +106,9 @@ chromePath || onExit("ERROR: Couldn't identify Google Chrome path");
 
     console.log(data);
     browser.close();
-  } catch {
-    console.error("Something went wrong.");
+  } catch (e) {
+    console.error("ERROR: Something went wrong.");
+    console.error(e.message);
+    process.exit(1);
   }
 })();
